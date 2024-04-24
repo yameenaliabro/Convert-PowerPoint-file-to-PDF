@@ -3,11 +3,17 @@ import express from "express";
 import FormData from "form-data"
 import axios from "axios";
 import dotenv from "dotenv"
+import bodyParser from "body-parser";
+const app = express();
+app.use(bodyParser({ extended: false }))
+app.set("view engine", "ejs")
 
 dotenv.config()
 
-const app = express();
 
+app.get("/", (req, res) => {
+    res.render("index")
+})
 
 const formData = new FormData()
 formData.append('instructions', JSON.stringify({
