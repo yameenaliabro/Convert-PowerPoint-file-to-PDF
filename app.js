@@ -14,7 +14,9 @@ dotenv.config()
 app.get("/", (req, res) => {
     res.render("index")
 })
-
+app.get("/register", (req, res) => {
+    res.render("register")
+})
 const formData = new FormData()
 formData.append('instructions', JSON.stringify({
     parts: [
